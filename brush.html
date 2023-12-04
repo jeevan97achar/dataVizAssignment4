@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+  <script src="//d3js.org/d3.v4.min.js"></script>
+
+<body>
+  <div style="margin-left: 20px;margin-top: 20px">
+    <span></span> to <span></span>
+  </div>
+</body>
+
+<script>
+
+    var margin = 20,
+        width = 400 - margin * 2,
+        height = 20;
+
+    var x = d3.scaleLinear()
+        .domain([0,100])
+        .range([0, width]);
+
+    var brush = d3.brushX()
+        .extent([[0,0], [width,height]])
+        .on("brush", brushed);
+
+    var svg = d3.select("body").append("svg")
+        .attr("width", width + margin * 2)
+        .attr("height", height + margin)
+      .append("g")
+        .attr("transform", "translate(" + margin + "," + margin + ")")
+        .call(d3.axisBottom()
+            .scale(x)
+            .ticks(5));
+
+    var brushg = svg.append("g")
+        .attr("class", "brush")
+        .call(brush)
+    
+    function brushed() {
+      var range = d3.brushSelection(this)
+          .map(x.invert);
+      
+      d3.selectAll("span")
+          .text(function(d, i) {
+            return Math.round(range[i])
+          })
+    }
+    brush.move(brushg, [20, 50].map(x));
+</script>

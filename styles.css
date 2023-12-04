@@ -1,0 +1,38 @@
+/* General body styling */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a; /* Dark background */
+    color: #f5f5f5; /* Light text for contrast */
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header and title styling */
+header {
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    text-align: center;
+    color: #4fc3f7; /* A light blue color for contrast */
+}
+
+/* Styling for the contour map container */
+#contourMap {
+    width: 80%; /* Adjust as per your preference */
+    height: 80%; /* Adjust as per your preference */
+    border: 1px solid #333; /* Subtle border */
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Additional styles (optional) */
+/* Add any additional styles you need for other elements */
